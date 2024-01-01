@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  nodeapp:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - /home/pawas/code/node-starter:/node-starter
+    ports:
+      - "4000:4000"
+    environment:
+      MONGO_USER_NAME: dev
+      MONGO_PASSWORD: 123
+      MONGO_HOST: mongoDB
+      MONGO_DATABASE_NAME: people
+
+  mongoDB:
+    image: mongo
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
