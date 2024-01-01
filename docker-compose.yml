@@ -6,7 +6,7 @@ services:
       context: .
       dockerfile: Dockerfile
     volumes:
-      - /home/pawas/code/node-starter:/node-starter
+      - ${CODE_ABSOLUTE_PATH}:/node-starter
     ports:
       - "4000:4000"
     environment:
