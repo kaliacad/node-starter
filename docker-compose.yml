@@ -14,9 +14,18 @@ services:
       MONGO_PASSWORD: ${MONGO_PASSWORD}
       MONGO_HOST: ${MONGO_HOST}
       MONGO_DATABASE_NAME: ${MONGO_DATABASE_NAME}
+    networks:
+      - gpc
 
   mongoDB:
     image: mongo
     environment:
       MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME}
       MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
+    networks:
+      - gpc
+
+networks:
+  gpc:
+    driver: bridge
+    name: gpc_nw
